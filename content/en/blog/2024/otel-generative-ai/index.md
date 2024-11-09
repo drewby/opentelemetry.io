@@ -1,7 +1,7 @@
 ---
 title: OpenTelemetry for Generative AI
 linkTitle: OpenTelemetry for Generative AI
-date: 2024-11-01
+date: 2024-11-09
 author: >-
   [Drew Robbins](https://github.com/drewby) (Microsoft),  [Luidmila
   Molkova](https://github.com/lmolkova) (Microsoft)
@@ -42,11 +42,18 @@ As generative AI applications grow, additional instrumentation libraries for oth
 
 ### Example Usage
 
-Here’s an example of using the OpenTelemetry Python library to monitor a generative AI application with the OpenAI client:
+Here’s an example of using the OpenTelemetry Python library to monitor a generative AI application with the OpenAI client.
+Make sure you first install the library:
+
+```bash
+pip install opentelemetry-instrumentation-openai-v2
+```
+
+Then include the following code in your python application.
 
 ```python
 from openai import OpenAI
-from opentelemetry.instrumentation.openai import OpenAIInstrumentor
+from opentelemetry.instrumentation.openai_v2 import OpenAIInstrumentor
 
 OpenAIInstrumentor().instrument()
 
@@ -58,6 +65,24 @@ response = client.chat.completions.create(
 
 # The library captures telemetry, including request and response metadata, token usage, and more.
 ```
+
+With this simple instrumentation, one can begin capture traces from their generative AI application. Here is an example from the Aspire Dashboard for local debugging.
+
+![Chat trace in Aspire Dashboard](aspire_dashboard_trace.png)
+
+Here is a similar trace captured in Jaeger:
+
+![Chat trace in Jaeger](jaeger_trace.png)
+
+It's also easy to capture the content history of the chat for debugging and improving your application. Simply set the environment variable `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT` as follows:
+
+```bash
+export OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT=True
+```
+
+This will turn on content capture which collects OpenTelemetry events containing the payload:
+
+![Content Capture Aspire Dashboard](aspire_dashboard_content_capture.png)
 
 ## Join Us in Shaping the Future of Generative AI Observability
 
