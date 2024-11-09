@@ -60,7 +60,6 @@ Together, these signals provide a comprehensive monitoring framework, enabling
 better cost management, performance tuning, and request tracing.
 
 **Extending Observability with Vendor-Specific Attributes**
-
 The Semantic Conventions also define vendor-specific attributes for platforms
 like OpenAI and Azure Inference API, ensuring telemetry captures both general
 and provider-specific details. This added flexibility supports multi-platform
@@ -71,7 +70,7 @@ monitoring and in-depth insights.
 This Python-based library for OpenTelemetry captures key telemetry signals for
 OpenAI models, providing developers with an out-of-the-box observability
 solution tailored to AI workloads. The library,
-[hosted within the OpenTelemetry Python Contrib repo](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/opentelemetry-instrumentation-openai-v2%3D%3D2.0b0/instrumentation-genai/opentelemetry-instrumentation-openai-v2),
+[hosted within the OpenTelemetry Python Contrib repository](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/opentelemetry-instrumentation-openai-v2%3D%3D2.0b0/instrumentation-genai/opentelemetry-instrumentation-openai-v2),
 automatically collects telemetry from OpenAI model interactions, including
 request and response metadata and token usage.
 
