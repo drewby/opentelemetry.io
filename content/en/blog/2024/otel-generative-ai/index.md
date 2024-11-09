@@ -66,7 +66,7 @@ response = client.chat.completions.create(
 # The library captures telemetry, including request and response metadata, token usage, and more.
 ```
 
-With this simple instrumentation, one can begin capture traces from their generative AI application. Here is an example from the Aspire Dashboard for local debugging.
+With this simple instrumentation, one can begin capture traces from their generative AI application. Here is an example from the [Aspire Dashboard](https://learn.microsoft.com/dotnet/aspire/fundamentals/dashboard/standalone?tabs=bash) for local debugging.
 
 ![Chat trace in Aspire Dashboard](aspire_dashboard_trace.png)
 
