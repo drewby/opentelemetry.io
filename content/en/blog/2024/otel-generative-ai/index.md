@@ -36,7 +36,7 @@ The Semantic Conventions also define vendor-specific attributes for platforms li
 
 ## Building the Python Instrumentation Library for OpenAI
 
-This Python-based library for OpenTelemetry captures key telemetry signals for OpenAI models, providing developers with an out-of-the-box observability solution tailored to AI workloads. The library, [hosted within the OpenTelemetry Contrib project](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-openai-v2), automatically collects telemetry from OpenAI model interactions, including request and response metadata, token usage, and operational metrics.
+This Python-based library for OpenTelemetry captures key telemetry signals for OpenAI models, providing developers with an out-of-the-box observability solution tailored to AI workloads. The library, [hosted within the OpenTelemetry Contrib project](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation-genai/opentelemetry-instrumentation-openai-v2), automatically collects telemetry from OpenAI model interactions, including request and response metadata, token usage, and operational metrics.
 
 As generative AI applications grow, additional instrumentation libraries for other languages will follow, extending OpenTelemetry support across more tools and environments. The current library’s focus on OpenAI highlights its popularity and demand within AI development, making it a valuable initial implementation.
 
