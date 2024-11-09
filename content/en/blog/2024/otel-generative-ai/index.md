@@ -70,7 +70,7 @@ With this simple instrumentation, one can begin capture traces from their genera
 
 ![Chat trace in Aspire Dashboard](aspire_dashboard_trace.png)
 
-Here is a similar trace captured in Jaeger:
+Here is a similar trace captured in [Jaeger](https://www.jaegertracing.io/docs/next-release-v2/getting-started/#running):
 
 ![Chat trace in Jaeger](jaeger_trace.png)
 
