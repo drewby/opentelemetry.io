@@ -28,7 +28,7 @@ The **Instrumentation Library** is being developed within the OpenTelemetry
 Python Contrib project to automate telemetry collection for generative AI
 applications. The first release is a Python library, given Python’s widespread
 use in AI development. Designed to integrate seamlessly with OpenAI’s API, this
-library captures spans, metrics, and events, gathering essential data like model
+library captures spans and events, gathering essential data like model
 inputs, response metadata, and token usage in a structured format.
 
 ## Key Signals for Generative AI
@@ -46,7 +46,7 @@ analyzing the impact of settings on model output.
 
 **Metrics: Monitoring Usage and Performance**  
 Metrics aggregate high-level indicators like request volume, latency, and
-resource use, essential for managing costs and performance. This data is
+token counts, essential for managing costs and performance. This data is
 particularly critical for API-dependent AI applications with rate limits and
 cost considerations.
 
