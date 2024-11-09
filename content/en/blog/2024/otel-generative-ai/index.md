@@ -59,10 +59,10 @@ behaviors may arise.
 Together, these signals provide a comprehensive monitoring framework, enabling
 better cost management, performance tuning, and request tracing.
 
-**Extending Observability with Vendor-Specific Attributes**
-The Semantic Conventions also define vendor-specific attributes for platforms
-like OpenAI and Azure Inference API, ensuring telemetry captures both general
-and provider-specific details. This added flexibility supports multi-platform
+**Extending Observability with Vendor-Specific Attributes** The Semantic
+Conventions also define vendor-specific attributes for platforms like OpenAI and
+Azure Inference API, ensuring telemetry captures both general and
+provider-specific details. This added flexibility supports multi-platform
 monitoring and in-depth insights.
 
 ## Building the Python Instrumentation Library for OpenAI
@@ -107,11 +107,15 @@ response = client.chat.completions.create(
 # The library captures telemetry, including request and response metadata, token usage, and more.
 ```
 
-With this simple instrumentation, one can begin capture traces from their generative AI application. Here is an example from the [Aspire Dashboard](https://learn.microsoft.com/dotnet/aspire/fundamentals/dashboard/standalone?tabs=bash) for local debugging.
+With this simple instrumentation, one can begin capture traces from their
+generative AI application. Here is an example from the
+[Aspire Dashboard](https://learn.microsoft.com/dotnet/aspire/fundamentals/dashboard/standalone?tabs=bash)
+for local debugging.
 
 ![Chat trace in Aspire Dashboard](aspire-dashboard-trace.png)
 
-Here is a similar trace captured in [Jaeger](https://www.jaegertracing.io/docs/next-release-v2/getting-started/#running):
+Here is a similar trace captured in
+[Jaeger](https://www.jaegertracing.io/docs/next-release-v2/getting-started/#running):
 
 ![Chat trace in Jaeger](jaeger-trace.png)
 
