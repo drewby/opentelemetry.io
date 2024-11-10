@@ -39,19 +39,22 @@ The
 focus on capturing insights into AI model behavior through three primary
 signals: Spans, Metrics, and Events.
 
-**Spans: Tracing Model Interactions**  
-Spans track each model interaction’s lifecycle, covering input parameters (e.g.,
-temperature, top_p) and response details like token count or errors. They
-provide visibility into each request, aiding in identifying bottlenecks and
-analyzing the impact of settings on model output.
+### Spans: Tracing Model Interactions
 
-**Metrics: Monitoring Usage and Performance**  
+Spans track each model interaction’s lifecycle, covering input parameters (for
+example, temperature, top_p) and response details like token count or errors.
+They provide visibility into each request, aiding in identifying bottlenecks and
+analyzing the impact of settings on model output.
+cd 
+### Metrics: Monitoring Usage and Performance
+
 Metrics aggregate high-level indicators like request volume, latency, and
 token counts, essential for managing costs and performance. This data is
 particularly critical for API-dependent AI applications with rate limits and
 cost considerations.
 
-**Events: Capturing Detailed Interactions**  
+### Events: Capturing Detailed Interactions
+
 Events log detailed moments during model execution, such as user prompts and
 model responses, providing a granular view of model interactions. These insights
 are invaluable for debugging and optimizing AI applications where unexpected
@@ -60,10 +63,11 @@ behaviors may arise.
 Together, these signals provide a comprehensive monitoring framework, enabling
 better cost management, performance tuning, and request tracing.
 
-**Extending Observability with Vendor-Specific Attributes** The Semantic
-Conventions also define vendor-specific attributes for platforms like OpenAI and
-Azure Inference API, ensuring telemetry captures both general and
-provider-specific details. This added flexibility supports multi-platform
+### Extending Observability with Vendor-Specific Attributes
+
+The Semantic Conventions also define vendor-specific attributes for platforms
+like OpenAI and Azure Inference API, ensuring telemetry captures both general
+and provider-specific details. This added flexibility supports multi-platform
 monitoring and in-depth insights.
 
 ## Building the Python Instrumentation Library for OpenAI
