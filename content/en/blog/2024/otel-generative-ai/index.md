@@ -7,11 +7,12 @@ author: >-
   Molkova](https://github.com/lmolkova) (Microsoft)
 ---
 
-As organizations increasingly adopt Large Language Models (LLMs) and other
-generative AI technologies, ensuring reliable performance, efficiency, and
-safety is essential. Enhanced observability—tracking AI operations, behaviors,
-and outcomes—helps meet these goals. OpenTelemetry is being enhanced to support
-these needs specifically for generative AI.
+As organizations increasingly adopt Large Language Models (LLMs) and other 
+generative AI technologies, ensuring reliable performance, efficiency, and 
+safety is essential to meet user expectations, optimize resource costs, and 
+safeguard against unintended outputs. Effective observability for AI 
+operations, behaviors, and outcomes can help meet these goals. 
+OpenTelemetry is being enhanced to support these needs specifically for generative AI.
 
 Two primary assets are in development to make this possible: **Semantic
 Conventions** and an **Instrumentation Library**.
