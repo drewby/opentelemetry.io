@@ -17,7 +17,7 @@ enhanced to support these needs specifically for generative AI.
 Two primary assets are in development to make this possible: **Semantic
 Conventions** and an **Instrumentation Library**.
 
-**Semantic Conventions** establish standardized guidelines for how telemetry
+[**Semantic Conventions** ](https://opentelemetry.io/docs/concepts/semantic-conventions/) establish standardized guidelines for how telemetry
 data is structured and collected across platforms, defining inputs, outputs, and
 operational details. For generative AI, these conventions streamline monitoring,
 troubleshooting, and optimizing AI models by standardizing attributes such as
