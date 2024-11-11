@@ -25,8 +25,7 @@ model parameters, response metadata, and token usage. This consistency supports
 better observability across tools, environments, and APIs, helping organizations
 track performance, cost, and safety with ease.
 
-The **Instrumentation Library** is being developed within the OpenTelemetry
-Python Contrib project to automate telemetry collection for generative AI
+The [**Instrumentation Library**](https://opentelemetry.io/docs/specs/otel/overview/#instrumentation-libraries) is being developed within the [OpenTelemetry Python Contrib](https://github.com/open-telemetry/opentelemetry-python-contrib) project to automate telemetry collection for generative AI
 applications. The first release is a Python library, given Python’s widespread
 use in AI development. Designed to integrate seamlessly with OpenAI’s API, this
 library captures spans and events, gathering essential data like model
