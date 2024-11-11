@@ -19,31 +19,39 @@ enhanced to support these needs specifically for generative AI.
 Two primary assets are in development to make this possible: **Semantic
 Conventions** and an **Instrumentation Library**.
 
-[**Semantic Conventions**](https://opentelemetry.io/docs/concepts/semantic-conventions/) establish standardized guidelines for how telemetry
-data is structured and collected across platforms, defining inputs, outputs, and
-operational details. For generative AI, these conventions streamline monitoring,
-troubleshooting, and optimizing AI models by standardizing attributes such as
-model parameters, response metadata, and token usage. This consistency supports
-better observability across tools, environments, and APIs, helping organizations
-track performance, cost, and safety with ease.
+[**Semantic Conventions**](https://opentelemetry.io/docs/concepts/semantic-conventions/)
+establish standardized guidelines for how telemetry data is structured and
+collected across platforms, defining inputs, outputs, and operational details.
+For generative AI, these conventions streamline monitoring, troubleshooting, and
+optimizing AI models by standardizing attributes such as model parameters,
+response metadata, and token usage. This consistency supports better
+observability across tools, environments, and APIs, helping organizations track
+performance, cost, and safety with ease.
 
-The [**Instrumentation Library**](https://opentelemetry.io/docs/specs/otel/overview/#instrumentation-libraries) is being developed within the [OpenTelemetry Python Contrib](https://github.com/open-telemetry/opentelemetry-python-contrib) project to automate telemetry collection for generative AI
-applications. The first release is a Python library for instrumenting OpenAI client calls, given Python's widespread
-use in AI development and the popularity of OpenAI. Designed to integrate seamlessly with OpenAI's API, this
-library captures spans and events, gathering essential data like model
-inputs, response metadata, and token usage in a structured format.
+The
+[**Instrumentation Library**](https://opentelemetry.io/docs/specs/otel/overview/#instrumentation-libraries)
+is being developed within the
+[OpenTelemetry Python Contrib](https://github.com/open-telemetry/opentelemetry-python-contrib)
+project to automate telemetry collection for generative AI applications. The
+first release is a Python library for instrumenting OpenAI client calls, given
+Python's widespread use in AI development and the popularity of OpenAI. Designed
+to integrate seamlessly with OpenAI's API, this library captures spans and
+events, gathering essential data like model inputs, response metadata, and token
+usage in a structured format.
 
 ## Key Signals for Generative AI
 
 The
 [Semantic Conventions for Generative AI](https://github.com/open-telemetry/semantic-conventions/tree/v1.28.0/docs/gen-ai)
 focus on capturing insights into AI model behavior through three primary
-signals: Spans, Metrics, and Events.
+signals: [Traces](https://opentelemetry.io/docs/concepts/signals/traces/),
+[Metrics](https://opentelemetry.io/docs/concepts/signals/metrics/), and
+[Events](https://opentelemetry.io/docs/specs/otel/logs/event-api/).
 
 Together, these signals provide a comprehensive monitoring framework, enabling
 better cost management, performance tuning, and request tracing.
 
-### Spans: Tracing Model Interactions
+### Traces: Tracing Model Interactions
 
 Spans track each model interaction’s lifecycle, covering input parameters (for
 example, temperature, top_p) and response details like token count or errors.
@@ -52,10 +60,10 @@ analyzing the impact of settings on model output.
 
 ### Metrics: Monitoring Usage and Performance
 
-Metrics aggregate high-level indicators like request volume, latency, and
-token counts, essential for managing costs and performance. This data is
-particularly critical for API-dependent AI applications with rate limits and
-cost considerations.
+Metrics aggregate high-level indicators like request volume, latency, and token
+counts, essential for managing costs and performance. This data is particularly
+critical for API-dependent AI applications with rate limits and cost
+considerations.
 
 ### Events: Capturing Detailed Interactions
 
@@ -63,6 +71,13 @@ Events log detailed moments during model execution, such as user prompts and
 model responses, providing a granular view of model interactions. These insights
 are invaluable for debugging and optimizing AI applications where unexpected
 behaviors may arise.
+
+> Note that we decided to use the newer Events API
+> (https://opentelemetry.io/docs/specs/otel/logs/event-api/) specification in
+> the Semantic Conventions for Generative AI. The events API allows for us to
+> define specific
+> [semantic conventions](https://opentelemetry.io/docs/specs/semconv/general/events/)
+> for the user prompts and model responses that we capture.
 
 ### Extending Observability with Vendor-Specific Attributes
 
