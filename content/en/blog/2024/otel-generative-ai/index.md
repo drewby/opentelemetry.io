@@ -19,7 +19,7 @@ enhanced to support these needs specifically for generative AI.
 Two primary assets are in development to make this possible: **Semantic
 Conventions** and an **Instrumentation Library**.
 
-[**Semantic Conventions** ](https://opentelemetry.io/docs/concepts/semantic-conventions/) establish standardized guidelines for how telemetry
+[**Semantic Conventions**](https://opentelemetry.io/docs/concepts/semantic-conventions/) establish standardized guidelines for how telemetry
 data is structured and collected across platforms, defining inputs, outputs, and
 operational details. For generative AI, these conventions streamline monitoring,
 troubleshooting, and optimizing AI models by standardizing attributes such as
@@ -28,8 +28,8 @@ better observability across tools, environments, and APIs, helping organizations
 track performance, cost, and safety with ease.
 
 The [**Instrumentation Library**](https://opentelemetry.io/docs/specs/otel/overview/#instrumentation-libraries) is being developed within the [OpenTelemetry Python Contrib](https://github.com/open-telemetry/opentelemetry-python-contrib) project to automate telemetry collection for generative AI
-applications. The first release is a Python library, given Python’s widespread
-use in AI development. Designed to integrate seamlessly with OpenAI’s API, this
+applications. The first release is a Python library for instrumenting OpenAI client calls, given Python's widespread
+use in AI development and the popularity of OpenAI. Designed to integrate seamlessly with OpenAI's API, this
 library captures spans and events, gathering essential data like model
 inputs, response metadata, and token usage in a structured format.
 
