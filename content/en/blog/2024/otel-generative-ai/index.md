@@ -94,7 +94,7 @@ the library:
 pip install opentelemetry-instrumentation-openai-v2
 ```
 
-Then include the following code in your Python application.
+Then include the following code in your Python application:
 
 ```python
 from openai import OpenAI
