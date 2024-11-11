@@ -5,6 +5,8 @@ date: 2024-11-09
 author: >-
   [Drew Robbins](https://github.com/drewby) (Microsoft),  [Liudmila
   Molkova](https://github.com/lmolkova) (Microsoft)
+issue: [#5581](https://github.com/open-telemetry/opentelemetry.io/issues/5581)
+sig: SIG GenAI Observability
 ---
 
 As organizations increasingly adopt Large Language Models (LLMs) and other
