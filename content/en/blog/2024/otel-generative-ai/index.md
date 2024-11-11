@@ -53,7 +53,7 @@ better cost management, performance tuning, and request tracing.
 
 ### Traces: Tracing Model Interactions
 
-Spans track each model interaction’s lifecycle, covering input parameters (for
+Traces track each model interaction’s lifecycle, covering input parameters (for
 example, temperature, top_p) and response details like token count or errors.
 They provide visibility into each request, aiding in identifying bottlenecks and
 analyzing the impact of settings on model output.
