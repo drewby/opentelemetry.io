@@ -17,7 +17,7 @@ behaviors, and outcomes can help meet these goals. OpenTelemetry is being
 enhanced to support these needs specifically for generative AI.
 
 Two primary assets are in development to make this possible: **Semantic
-Conventions** and an **Instrumentation Library**.
+Conventions** and an **Instrumentation Library**. The first instrumentation library targets OpenAI in Python.
 
 [**Semantic Conventions**](https://opentelemetry.io/docs/concepts/semantic-conventions/)
 establish standardized guidelines for how telemetry data is structured and
