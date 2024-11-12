@@ -72,12 +72,12 @@ model responses, providing a granular view of model interactions. These insights
 are invaluable for debugging and optimizing AI applications where unexpected
 behaviors may arise.
 
-> Note that we decided to use the newer Events API
-> (https://opentelemetry.io/docs/specs/otel/logs/event-api/) specification in
-> the Semantic Conventions for Generative AI. The events API allows for us to
-> define specific
-> [semantic conventions](https://opentelemetry.io/docs/specs/semconv/general/events/)
-> for the user prompts and model responses that we capture.
+{{% alert title="Note" color="info" %}} Note that we decided to use the
+newer Events API (https://opentelemetry.io/docs/specs/otel/logs/event-api/)
+specification in the Semantic Conventions for Generative AI. The events API
+allows for us to define specific
+[semantic conventions](https://opentelemetry.io/docs/specs/semconv/general/events/)
+for the user prompts and model responses that we capture. {{% /alert %}}
 
 ### Extending Observability with Vendor-Specific Attributes
 
