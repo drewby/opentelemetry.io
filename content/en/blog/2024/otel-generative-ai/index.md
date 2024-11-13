@@ -31,7 +31,7 @@ performance, cost, and safety with ease.
 The
 [**Instrumentation Library**](https://opentelemetry.io/docs/specs/otel/overview/#instrumentation-libraries)
 is being developed within the
-[OpenTelemetry Python Contrib](https://github.com/open-telemetry/opentelemetry-python-contrib)
+[OpenTelemetry Python Contrib](https://github.com/open-telemetry/opentelemetry-python-contrib) under [instrumentation-genai](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation-genai)
 project to automate telemetry collection for generative AI applications. The
 first release is a Python library for instrumenting OpenAI client calls, given
 Python's widespread use in AI development and the popularity of OpenAI. Designed
