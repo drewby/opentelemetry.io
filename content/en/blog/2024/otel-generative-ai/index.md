@@ -17,7 +17,8 @@ behaviors, and outcomes can help meet these goals. OpenTelemetry is being
 enhanced to support these needs specifically for generative AI.
 
 Two primary assets are in development to make this possible: **Semantic
-Conventions** and an **Instrumentation Library**. The first instrumentation library targets OpenAI in Python.
+Conventions** and an **Instrumentation Library**. The first instrumentation
+library targets OpenAI in Python.
 
 [**Semantic Conventions**](https://opentelemetry.io/docs/concepts/semantic-conventions/)
 establish standardized guidelines for how telemetry data is structured and
@@ -31,7 +32,9 @@ performance, cost, and safety with ease.
 The
 [**Instrumentation Library**](https://opentelemetry.io/docs/specs/otel/overview/#instrumentation-libraries)
 is being developed within the
-[OpenTelemetry Python Contrib](https://github.com/open-telemetry/opentelemetry-python-contrib) under [instrumentation-genai](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation-genai)
+[OpenTelemetry Python Contrib](https://github.com/open-telemetry/opentelemetry-python-contrib)
+under
+[instrumentation-genai](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation-genai)
 project to automate telemetry collection for generative AI applications. The
 first release is a Python library for instrumenting OpenAI client calls, given
 Python's widespread use in AI development and the popularity of OpenAI. Designed
@@ -72,8 +75,8 @@ model responses, providing a granular view of model interactions. These insights
 are invaluable for debugging and optimizing AI applications where unexpected
 behaviors may arise.
 
-{{% alert title="Note" color="info" %}} Note that we decided to use the
-newer Events API (https://opentelemetry.io/docs/specs/otel/logs/event-api/)
+{{% alert title="Note" color="info" %}} Note that we decided to use the newer
+[Log events API](https://opentelemetry.io/docs/specs/otel/logs/event-api/)
 specification in the Semantic Conventions for Generative AI. The events API
 allows for us to define specific
 [semantic conventions](https://opentelemetry.io/docs/specs/semconv/general/events/)
