@@ -114,9 +114,41 @@ the library:
 pip install opentelemetry-instrumentation-openai-v2
 ```
 
+Set the following environment variables, updating the endpoint and protocol as appropriate:
+
+```bash
+OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318
+OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
+OTEL_SERVICE_NAME=python-opentelemetry-openai
+
+# Set to false or remove to disable log events
+OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT=true
+OTEL_PYTHON_LOGGING_AUTO_INSTRUMENTATION_ENABLED=true
+OTEL_LOGS_EXPORTER=otlp_proto_http
+```
+
 Then include the following code in your Python application:
 
 ```python
+from opentelemetry import trace, _logs, _events
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk._logs import LoggerProvider
+from opentelemetry.sdk._events import EventLoggerProvider
+
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+from opentelemetry.sdk._logs.export import BatchLogRecordProcessor
+from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
+from opentelemetry.exporter.otlp.proto.grpc._log_exporter import OTLPLogExporter
+
+trace.set_tracer_provider(TracerProvider())
+trace.get_tracer_provider().add_span_processor(
+    BatchSpanProcessor(OTLPSpanExporter())
+)
+
+_logs.set_logger_provider(LoggerProvider())
+_logs.get_logger_provider().add_log_record_processor(BatchLogRecordProcessor(OTLPLogExporter()))
+_events.set_event_logger_provider(EventLoggerProvider())
+
 from openai import OpenAI
 from opentelemetry.instrumentation.openai_v2 import OpenAIInstrumentor
 
