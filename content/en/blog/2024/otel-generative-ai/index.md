@@ -121,43 +121,39 @@ appropriate:
 OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318
 OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
 OTEL_SERVICE_NAME=python-opentelemetry-openai
+OPENAI_API_KEY=<replace_with_your_openai_api_key>
 
 # Set to false or remove to disable log events
 OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT=true
-OTEL_PYTHON_LOGGING_AUTO_INSTRUMENTATION_ENABLED=true
-OTEL_LOGS_EXPORTER=otlp_proto_http
 ```
 
 Then include the following code in your Python application:
 
 ```python
-from opentelemetry import trace, _logs, _events
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk._logs import LoggerProvider
+# NOTE: OpenTelemetry Python Log Events APIs is in beta
+from opentelemetry import _events
 from opentelemetry.sdk._events import EventLoggerProvider
-
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
-from opentelemetry.sdk._logs.export import BatchLogRecordProcessor
-from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
-from opentelemetry.exporter.otlp.proto.grpc._log_exporter import OTLPLogExporter
-
-trace.set_tracer_provider(TracerProvider())
-trace.get_tracer_provider().add_span_processor(
-    BatchSpanProcessor(OTLPSpanExporter())
-)
-
-_logs.set_logger_provider(LoggerProvider())
-_logs.get_logger_provider().add_log_record_processor(BatchLogRecordProcessor(OTLPLogExporter()))
 _events.set_event_logger_provider(EventLoggerProvider())
 
 from openai import OpenAI
 from opentelemetry.instrumentation.openai_v2 import OpenAIInstrumentor
 
+provider = TracerProvider()
+provider.add_span_processor(SimpleSpanProcessor(OTLPSpanExporter()))
+set_tracer_provider(provider)
+
+provider = LoggerProvider()
+provider.add_log_record_processor(SimpleLogRecordProcessor(OTLPLogExporter()))
+set_logger_provider(provider)
+
+event_provider = EventLoggerProvider(provider)
+set_event_logger_provider(event_provider)
+
 OpenAIInstrumentor().instrument()
 
 client = OpenAI()
 response = client.chat.completions.create(
-    model="gpt-4-mini",
+    model="gpt-4o",
     messages=[{"role": "user", "content": "Write a short poem on OpenTelemetry."}],
 )
 
