@@ -114,7 +114,8 @@ the library:
 pip install opentelemetry-instrumentation-openai-v2
 ```
 
-Set the following environment variables, updating the endpoint and protocol as appropriate:
+Set the following environment variables, updating the endpoint and protocol as
+appropriate:
 
 ```bash
 OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318
