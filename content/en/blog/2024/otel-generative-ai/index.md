@@ -160,6 +160,12 @@ chat_completion = client.chat.completions.create(
 print(chat_completion.choices[0].message.content)
 ```
 
+And then run the example using `opentelemetry-instrument`:
+
+```bash
+opentelemetry-instrument python main.py
+```
+
 There is a complete example
 [available here](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation-genai/opentelemetry-instrumentation-openai-v2/example).
 
