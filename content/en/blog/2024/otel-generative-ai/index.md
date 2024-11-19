@@ -171,7 +171,7 @@ for local debugging.
 ![Chat trace in Aspire Dashboard](aspire-dashboard-trace.png)
 
 Here is a similar trace captured in
-[Jaeger](https://www.jaegertracing.io/docs/next-release-v2/getting-started/#running):
+[Jaeger](https://www.jaegertracing.io/docs/1.63/getting-started/#all-in-one):
 
 ![Chat trace in Jaeger](jaeger-trace.png)
 
