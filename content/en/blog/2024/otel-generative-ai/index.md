@@ -118,11 +118,13 @@ Set the following environment variables, updating the endpoint and protocol as
 appropriate:
 
 ```bash
+OPENAI_API_KEY=<replace_with_your_openai_api_key>
+
 OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318
 OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
 OTEL_SERVICE_NAME=python-opentelemetry-openai
-OPENAI_API_KEY=<replace_with_your_openai_api_key>
-
+OTEL_LOGS_EXPORTER=otlp_proto_http
+OTEL_PYTHON_LOGGING_AUTO_INSTRUMENTATION_ENABLED=true
 # Set to false or remove to disable log events
 OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT=true
 ```
@@ -130,35 +132,36 @@ OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT=true
 Then include the following code in your Python application:
 
 ```python
+
 # NOTE: OpenTelemetry Python Log Events APIs is in beta
-from opentelemetry import _events
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk._logs import LoggerProvider
 from opentelemetry.sdk._events import EventLoggerProvider
-_events.set_event_logger_provider(EventLoggerProvider())
+from opentelemetry.trace import set_tracer_provider
+from opentelemetry._logs import set_logger_provider
+from opentelemetry._events import set_event_logger_provider
+from opentelemetry.sdk.trace.export import SimpleSpanProcessor
+from opentelemetry.sdk._logs.export import SimpleLogRecordProcessor
+from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
+from opentelemetry.exporter.otlp.proto.grpc._log_exporter import OTLPLogExporter
 
 from openai import OpenAI
-from opentelemetry.instrumentation.openai_v2 import OpenAIInstrumentor
-
-provider = TracerProvider()
-provider.add_span_processor(SimpleSpanProcessor(OTLPSpanExporter()))
-set_tracer_provider(provider)
-
-provider = LoggerProvider()
-provider.add_log_record_processor(SimpleLogRecordProcessor(OTLPLogExporter()))
-set_logger_provider(provider)
-
-event_provider = EventLoggerProvider(provider)
-set_event_logger_provider(event_provider)
-
-OpenAIInstrumentor().instrument()
 
 client = OpenAI()
-response = client.chat.completions.create(
-    model="gpt-4o",
-    messages=[{"role": "user", "content": "Write a short poem on OpenTelemetry."}],
+chat_completion = client.chat.completions.create(
+    model=os.getenv("CHAT_MODEL", "gpt-4o-mini"),
+    messages=[
+        {
+            "role": "user",
+            "content": "Write a short poem on OpenTelemetry.",
+        },
+    ],
 )
-
-# The library captures telemetry, including request and response metadata, token usage, and more.
+print(chat_completion.choices[0].message.content)
 ```
+
+There is a complete example
+[available here](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation-genai/opentelemetry-instrumentation-openai-v2/example).
 
 With this simple instrumentation, one can begin capture traces from their
 generative AI application. Here is an example from the
