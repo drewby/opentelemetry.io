@@ -188,5 +188,13 @@ Community collaboration is key to OpenTelemetry's success. We invite developers,
 AI practitioners, and organizations to contribute, share feedback, or
 participate in discussions. Explore the OpenTelemetry Python Contrib project,
 contribute code, or help shape observability for AI as it continues to evolve.
-More information can be found at the
+
+We now have contributors from [Amazon](https://aws.amazon.com/),
+[Elastic](https://www.elastic.co/), [Google](https://www.google.com/),
+[IBM](https://www.ibm.com), [Langtrace](https://www.langtrace.ai/),
+[Microsoft](https://www.microsoft.com/), [OpenLIT](https://openlit.io/),
+[Scorecard](https://www.scorecard.io/), [Traceloop](https://www.traceloop.com/),
+and more!
+
+You are welcome to join the community! More information can be found at the
 [Generative AI Observability project page](https://github.com/open-telemetry/community/blob/main/projects/gen-ai.md).
