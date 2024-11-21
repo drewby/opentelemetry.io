@@ -22,10 +22,10 @@ Conventions** and **Instrumentation Libraries**. The first instrumentation
 library targets the
 [OpenAI Python API library](https://pypi.org/project/openai/).
 
-[**Semantic Conventions**](/docs/concepts/semantic-conventions/)
-establish standardized guidelines for how telemetry data is structured and
-collected across platforms, defining inputs, outputs, and operational details.
-For generative AI, these conventions streamline monitoring, troubleshooting, and
+[**Semantic Conventions**](/docs/concepts/semantic-conventions/) establish
+standardized guidelines for how telemetry data is structured and collected
+across platforms, defining inputs, outputs, and operational details. For
+generative AI, these conventions streamline monitoring, troubleshooting, and
 optimizing AI models by standardizing attributes such as model parameters,
 response metadata, and token usage. This consistency supports better
 observability across tools, environments, and APIs, helping organizations track
@@ -44,10 +44,9 @@ response metadata, and token usage in a structured format.
 
 ## Key Signals for Generative AI
 
-The
-[Semantic Conventions for Generative AI](/docs/specs/semconv/gen-ai/)
-focus on capturing insights into AI model behavior through three primary
-signals: [Traces](/docs/concepts/signals/traces/),
+The [Semantic Conventions for Generative AI](/docs/specs/semconv/gen-ai/) focus
+on capturing insights into AI model behavior through three primary signals:
+[Traces](/docs/concepts/signals/traces/),
 [Metrics](/docs/concepts/signals/metrics/), and
 [Events](/docs/specs/otel/logs/event-api/).
 
@@ -76,11 +75,10 @@ are invaluable for debugging and optimizing AI applications where unexpected
 behaviors may arise.
 
 {{% alert title="Note" color="info" %}} Note that we decided to use the newer
-[Log events API](/docs/specs/otel/logs/event-api/)
-specification in the Semantic Conventions for Generative AI. The events API
-allows for us to define specific
-[semantic conventions](/docs/specs/semconv/general/events/)
-for the user prompts and model responses that we capture. {{% /alert %}}
+[Log events API](/docs/specs/otel/logs/event-api/) specification in the Semantic
+Conventions for Generative AI. The events API allows for us to define specific
+[semantic conventions](/docs/specs/semconv/general/events/) for the user prompts
+and model responses that we capture. {{% /alert %}}
 
 ### Extending Observability with Vendor-Specific Attributes
 
