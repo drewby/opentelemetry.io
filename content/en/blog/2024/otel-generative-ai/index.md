@@ -44,7 +44,7 @@ response metadata, and token usage in a structured format.
 ## Key Signals for Generative AI
 
 The
-[Semantic Conventions for Generative AI](https://github.com/open-telemetry/semantic-conventions/tree/v1.28.0/docs/gen-ai)
+[Semantic Conventions for Generative AI](/docs/specs/semconv/gen-ai/)
 focus on capturing insights into AI model behavior through three primary
 signals: [Traces](https://opentelemetry.io/docs/concepts/signals/traces/),
 [Metrics](https://opentelemetry.io/docs/concepts/signals/metrics/), and
