@@ -17,8 +17,9 @@ behaviors, and outcomes can help meet these goals. OpenTelemetry is being
 enhanced to support these needs specifically for generative AI.
 
 Two primary assets are in development to make this possible: **Semantic
-Conventions** and an **Instrumentation Library**. The first instrumentation
-library targets OpenAI in Python.
+Conventions** and **Instrumentation Libraries**. The first instrumentation
+library targets the
+[OpenAI Python API library](https://pypi.org/project/openai/).
 
 [**Semantic Conventions**](https://opentelemetry.io/docs/concepts/semantic-conventions/)
 establish standardized guidelines for how telemetry data is structured and
@@ -36,11 +37,9 @@ is being developed within the
 under
 [instrumentation-genai](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation-genai)
 project to automate telemetry collection for generative AI applications. The
-first release is a Python library for instrumenting OpenAI client calls, given
-Python's widespread use in AI development and the popularity of OpenAI. Designed
-to integrate seamlessly with OpenAI's API, this library captures spans and
-events, gathering essential data like model inputs, response metadata, and token
-usage in a structured format.
+first release is a Python library for instrumenting OpenAI client calls. This
+library captures spans and events, gathering essential data like model inputs,
+response metadata, and token usage in a structured format.
 
 ## Key Signals for Generative AI
 
@@ -56,7 +55,7 @@ better cost management, performance tuning, and request tracing.
 
 ### Traces: Tracing Model Interactions
 
-Traces track each model interaction’s lifecycle, covering input parameters (for
+Traces track each model interaction's lifecycle, covering input parameters (for
 example, temperature, top_p) and response details like token count or errors.
 They provide visibility into each request, aiding in identifying bottlenecks and
 analyzing the impact of settings on model output.
@@ -100,18 +99,20 @@ request and response metadata and token usage.
 
 As generative AI applications grow, additional instrumentation libraries for
 other languages will follow, extending OpenTelemetry support across more tools
-and environments. The current library’s focus on OpenAI highlights its
+and environments. The current library's focus on OpenAI highlights its
 popularity and demand within AI development, making it a valuable initial
 implementation.
 
 ### Example Usage
 
-Here’s an example of using the OpenTelemetry Python library to monitor a
-generative AI application with the OpenAI client. Make sure you first install
-the library:
+Here's an example of using the OpenTelemetry Python library to monitor a
+generative AI application with the OpenAI client.
+
+Install the OpenTelemetry dependencies:
 
 ```bash
-pip install opentelemetry-instrumentation-openai-v2
+pip install opentelemetry-distro
+opentelemetry-bootstrap -a install
 ```
 
 Set the following environment variables, updating the endpoint and protocol as
@@ -196,7 +197,7 @@ the payload:
 
 ## Join Us in Shaping the Future of Generative AI Observability
 
-Community collaboration is key to OpenTelemetry’s success. We invite developers,
+Community collaboration is key to OpenTelemetry's success. We invite developers,
 AI practitioners, and organizations to contribute, share feedback, or
 participate in discussions. Explore the OpenTelemetry Python Contrib project,
 contribute code, or help shape observability for AI as it continues to evolve.
