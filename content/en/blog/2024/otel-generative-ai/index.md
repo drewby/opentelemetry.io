@@ -7,6 +7,7 @@ author: >-
   Molkova](https://github.com/lmolkova) (Microsoft)
 issue: [#5581](https://github.com/open-telemetry/opentelemetry.io/issues/5581)
 sig: SIG GenAI Observability
+cSpell:ignore: genai liudmila molkova
 ---
 
 As organizations increasingly adopt Large Language Models (LLMs) and other
@@ -21,7 +22,7 @@ Conventions** and **Instrumentation Libraries**. The first instrumentation
 library targets the
 [OpenAI Python API library](https://pypi.org/project/openai/).
 
-[**Semantic Conventions**](https://opentelemetry.io/docs/concepts/semantic-conventions/)
+[**Semantic Conventions**](/docs/concepts/semantic-conventions/)
 establish standardized guidelines for how telemetry data is structured and
 collected across platforms, defining inputs, outputs, and operational details.
 For generative AI, these conventions streamline monitoring, troubleshooting, and
@@ -31,7 +32,7 @@ observability across tools, environments, and APIs, helping organizations track
 performance, cost, and safety with ease.
 
 The
-[**Instrumentation Library**](https://opentelemetry.io/docs/specs/otel/overview/#instrumentation-libraries)
+[**Instrumentation Library**](/docs/specs/otel/overview/#instrumentation-libraries)
 is being developed within the
 [OpenTelemetry Python Contrib](https://github.com/open-telemetry/opentelemetry-python-contrib)
 under
@@ -46,9 +47,9 @@ response metadata, and token usage in a structured format.
 The
 [Semantic Conventions for Generative AI](/docs/specs/semconv/gen-ai/)
 focus on capturing insights into AI model behavior through three primary
-signals: [Traces](https://opentelemetry.io/docs/concepts/signals/traces/),
-[Metrics](https://opentelemetry.io/docs/concepts/signals/metrics/), and
-[Events](https://opentelemetry.io/docs/specs/otel/logs/event-api/).
+signals: [Traces](/docs/concepts/signals/traces/),
+[Metrics](/docs/concepts/signals/metrics/), and
+[Events](/docs/specs/otel/logs/event-api/).
 
 Together, these signals provide a comprehensive monitoring framework, enabling
 better cost management, performance tuning, and request tracing.
@@ -75,10 +76,10 @@ are invaluable for debugging and optimizing AI applications where unexpected
 behaviors may arise.
 
 {{% alert title="Note" color="info" %}} Note that we decided to use the newer
-[Log events API](https://opentelemetry.io/docs/specs/otel/logs/event-api/)
+[Log events API](/docs/specs/otel/logs/event-api/)
 specification in the Semantic Conventions for Generative AI. The events API
 allows for us to define specific
-[semantic conventions](https://opentelemetry.io/docs/specs/semconv/general/events/)
+[semantic conventions](/docs/specs/semconv/general/events/)
 for the user prompts and model responses that we capture. {{% /alert %}}
 
 ### Extending Observability with Vendor-Specific Attributes
@@ -110,7 +111,7 @@ generative AI application with the OpenAI client.
 
 Install the OpenTelemetry dependencies:
 
-```bash
+```shell
 pip install opentelemetry-distro
 opentelemetry-bootstrap -a install
 ```
@@ -118,7 +119,7 @@ opentelemetry-bootstrap -a install
 Set the following environment variables, updating the endpoint and protocol as
 appropriate:
 
-```bash
+```shell
 OPENAI_API_KEY=<replace_with_your_openai_api_key>
 
 OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318
@@ -133,19 +134,7 @@ OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT=true
 Then include the following code in your Python application:
 
 ```python
-
-# NOTE: OpenTelemetry Python Log Events APIs is in beta
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk._logs import LoggerProvider
-from opentelemetry.sdk._events import EventLoggerProvider
-from opentelemetry.trace import set_tracer_provider
-from opentelemetry._logs import set_logger_provider
-from opentelemetry._events import set_event_logger_provider
-from opentelemetry.sdk.trace.export import SimpleSpanProcessor
-from opentelemetry.sdk._logs.export import SimpleLogRecordProcessor
-from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
-from opentelemetry.exporter.otlp.proto.grpc._log_exporter import OTLPLogExporter
-
+import os
 from openai import OpenAI
 
 client = OpenAI()
@@ -163,7 +152,7 @@ print(chat_completion.choices[0].message.content)
 
 And then run the example using `opentelemetry-instrument`:
 
-```bash
+```shell
 opentelemetry-instrument python main.py
 ```
 
@@ -186,7 +175,7 @@ It's also easy to capture the content history of the chat for debugging and
 improving your application. Simply set the environment variable
 `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT` as follows:
 
-```bash
+```shell
 export OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT=True
 ```
 
