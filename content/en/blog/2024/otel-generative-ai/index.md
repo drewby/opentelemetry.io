@@ -74,11 +74,13 @@ model responses, providing a granular view of model interactions. These insights
 are invaluable for debugging and optimizing AI applications where unexpected
 behaviors may arise.
 
-{{% alert title="Note" color="info" %}} Note that we decided to use the newer
-[Log events API](/docs/specs/otel/logs/event-api/) specification in the Semantic
-Conventions for Generative AI. The events API allows for us to define specific
+{{% alert title="Note" color="info" %}} Note that we decided to use
+[events emitted](/docs/specs/otel/logs/api/#emit-an-event) with the
+[Logs API](/docs/specs/otel/logs/api/) specification in the Semantic Conventions
+for Generative AI. Events allows for us to define specific
 [semantic conventions](/docs/specs/semconv/general/events/) for the user prompts
-and model responses that we capture. {{% /alert %}}
+and model responses that we capture. This addition to the API is in development
+and considered unstable.{{% /alert %}}
 
 ### Extending Observability with Vendor-Specific Attributes
 
