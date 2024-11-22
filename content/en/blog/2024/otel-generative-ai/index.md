@@ -156,11 +156,11 @@ And then run the example using `opentelemetry-instrument`:
 opentelemetry-instrument python main.py
 ```
 
-If you do not have a service running to collect spans, you can export the traces
-to console using the following:
+If you do not have a service running to collect telemetry, you can export to the
+console using the following:
 
 ```shell
-opentelemetry-instrument --traces_exporter console python main.py
+opentelemetry-instrument --traces_exporter console --metrics_exporter console python main.py
 ```
 
 There is a complete example
