@@ -1,6 +1,6 @@
 ---
 title: OpenTelemetry for Generative AI
-linkTitle: OpenTelemetry for Generative AI
+linkTitle: OTel for GenAI
 date: 2024-11-09
 author: >-
   [Drew Robbins](https://github.com/drewby) (Microsoft),  [Liudmila
