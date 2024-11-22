@@ -5,7 +5,7 @@ date: 2024-11-09
 author: >-
   [Drew Robbins](https://github.com/drewby) (Microsoft),  [Liudmila
   Molkova](https://github.com/lmolkova) (Microsoft)
-issue: [#5581](https://github.com/open-telemetry/opentelemetry.io/issues/5581)
+issue: https://github.com/open-telemetry/opentelemetry.io/issues/5581
 sig: SIG GenAI Observability
 cSpell:ignore: genai liudmila molkova
 ---
