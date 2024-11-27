@@ -171,10 +171,24 @@ generative AI application. Here is an example from the
 [Aspire Dashboard](https://learn.microsoft.com/dotnet/aspire/fundamentals/dashboard/standalone?tabs=bash)
 for local debugging.
 
+To start Jaeger, run the following `docker` command and open your web browser
+the `localhost:18888`:
+
+```shell
+docker run --rm -it -d -p 18888:18888 -p 4317:18889 -p 4318:18890 --name aspire-dashboard mcr.microsoft.com/dotnet/aspire-dashboard:9.0
+```
+
 ![Chat trace in Aspire Dashboard](aspire-dashboard-trace.png)
 
 Here is a similar trace captured in
-[Jaeger](https://www.jaegertracing.io/docs/1.63/getting-started/#all-in-one):
+[Jaeger](https://www.jaegertracing.io/docs/1.63/getting-started/#all-in-one).
+
+To start Jaeger, run the following `docker` command and open your web browser
+the `localhost:16686`.
+
+```shell
+docker run --rm -it -d -p 16686:16686 -p 4317:4317 -p 4318:4318 --name jaeger jaegertracing/all-in-one:latest
+```
 
 ![Chat trace in Jaeger](jaeger-trace.png)
 
